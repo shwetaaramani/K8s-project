@@ -1,0 +1,19 @@
+kind: Deployment
+metadata:
+  name: devopspro
+spec:
+  replicas: 2
+  selector:
+    matchlabels:
+      app: devopspro
+  templates:
+    metadata:
+      labels:
+        app: devopspro
+    spec:
+      containers:
+       - name: devopspro
+         image: shweta040993/k8s-pipeline  
+         imagePollPolicy: always
+         ports:
+          - containerPort: 80
